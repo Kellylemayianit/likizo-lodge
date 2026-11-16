@@ -1,0 +1,46 @@
+/* Hero */
+.hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 30%; display: block; }
+.hero .tx { padding: 20px var(--pad) 8px; }
+
+/* Facts strip */
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px var(--pad); }
+.facts div { background: var(--sf); border-radius: var(--r); padding: 12px 8px; text-align: center; font-size: 13px; color: var(--mut); }
+.facts b { display: block; font-size: 17px; color: var(--br); }
+
+/* Story rows */
+.story { display: grid; gap: 16px; align-items: center; padding: 22px var(--pad); }
+.story img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r); display: block; }
+.story p { color: var(--mut); margin-top: 10px; max-width: 58ch; }
+.story ul { margin: 10px 0 0 18px; color: var(--mut); }
+.story li { margin-bottom: 4px; }
+
+/* Quote band (fixed dark in both themes) */
+.band { background: #2b1706; color: #f6e8d5; padding: 34px 20px; text-align: center; }
+.band p { font: italic 500 clamp(22px, 5vw, 32px)/1.3 var(--serif); max-width: 26ch; margin: 0 auto; }
+.band small { display: block; margin-top: 12px; color: #d9bf99; font-size: 14px; }
+
+/* Established block */
+.est { display: inline-block; border-top: 3px solid var(--ac); padding-top: 8px; margin-top: 14px; }
+.est b { display: block; font: 500 28px var(--serif); color: var(--br); }
+.est span { color: var(--mut); font-size: 14px; }
+
+/* Scroll reveal (only when JS is running) */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+@media (min-width: 900px) {
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; }
+  .hero img { aspect-ratio: auto; height: 520px; }
+  .story { grid-template-columns: 1fr 1fr; gap: 34px; padding: 34px var(--pad); }
+  .story.rev img { order: 2; }
+}
+@media (min-width: 1100px) {
+  .hero { grid-template-columns: 1.3fr 1fr; }
+  .hero img { height: min(78vh, 760px); }
+  .hero .tx { padding: 48px 64px; }
+  .facts { padding: 20px var(--pad); gap: 20px; }
+  .facts div { padding: 20px 12px; font-size: 15px; } .facts b { font-size: 24px; }
+  .story { padding-top: 48px; padding-bottom: 48px; gap: 72px; }
+  .band { padding: 72px var(--pad); }
+}
+@media (min-width: 1500px) { .hero .tx { padding: 64px 96px; } }

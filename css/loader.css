@@ -1,0 +1,17 @@
+/* Splash (first load) */
+#loader { position: fixed; inset: 0; z-index: 100; background: var(--bg); color: var(--br); display: grid; place-content: center; justify-items: center; gap: 14px; transition: opacity .45s ease, visibility .45s; animation: splashFailsafe .4s ease 5s forwards; }
+#loader.done { opacity: 0; visibility: hidden; }
+#loader p { font: 500 22px var(--serif); color: var(--br); }
+#loader .draw { stroke-dasharray: 90; stroke-dashoffset: 90; animation: draw 1.2s ease forwards; }
+.lbar { width: 120px; height: 3px; border-radius: 3px; background: var(--ln); overflow: hidden; }
+.lbar i { display: block; height: 100%; width: 40%; background: var(--ac); animation: slide 1s ease-in-out infinite; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes slide { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+@keyframes splashFailsafe { to { opacity: 0; visibility: hidden; } }
+
+/* Route progress bar + view entrance */
+.route-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--ac); z-index: 60; opacity: 0; pointer-events: none; }
+.route-bar.run { opacity: 1; width: 72%; transition: width .6s ease; }
+.route-bar.done { opacity: 0; width: 100%; transition: width .15s ease, opacity .25s ease .15s; }
+.view { animation: viewIn .38s ease both; }
+@keyframes viewIn { from { opacity: 0; transform: translateY(8px); } }
